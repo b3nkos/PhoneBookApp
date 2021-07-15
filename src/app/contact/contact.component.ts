@@ -6,6 +6,12 @@ import {ContactModel} from "./contact.model";
   templateUrl: './contact.component.html'
 })
 export class ContactComponent {
-  @Input() public contact: ContactModel;
+  @Input() public contact: ContactModel = {
+    id: 0,
+    name: '',
+    email: '',
+    phone: ''
+  };
+
 
 }
