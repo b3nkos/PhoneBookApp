@@ -1,4 +1,9 @@
-<div class="container">
+<div class="container is-fluid">
+  <div class="columns">
+    <div class="column is-4 is-full-mobile">
+      <button class="button mt-2" (click)="onNewContact()">New contact</button>
+    </div>
+  </div>
   <div class="columns is-centered is-multiline">
     <div class="column is-4-desktop is-full-mobile" *ngFor="let contact of contactList">
       <app-contact [contact]="contact"></app-contact>

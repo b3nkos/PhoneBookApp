@@ -1,0 +1,43 @@
+<div class="container is-fluid">
+  <div class="columns is-centered is-full-mobile mt-2">
+    <div class="column is-4-desktop">
+      <form #contactForm="ngForm">
+        <div class="field">
+          <label class="label" for="name">Name</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              name="name"
+              id="name"
+              required
+              ngModel
+              placeholder="e.g Alex Smith">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Phone</label>
+          <div class="control">
+            <input class="input" type="tel" placeholder="8888888">
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control">
+            <button class="button is-success">
+              Save
+            </button>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
