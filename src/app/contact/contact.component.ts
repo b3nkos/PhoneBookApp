@@ -13,10 +13,12 @@ export class ContactComponent {
   constructor(private router: Router) {
   }
   @Input() public contact: ContactModel = {
-    id: 0,
+    id: '',
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    avatar: '',
+    createdAt: new Date()
   };
 
   public onEditContact(): void {

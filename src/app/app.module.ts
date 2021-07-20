@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {HeaderModule} from "./header/header.module";
 import {RouterModule, Routes} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/contact-list', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     HeaderModule,
     RouterModule.forRoot(appRoutes)
   ],
