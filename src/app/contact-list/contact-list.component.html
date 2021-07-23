@@ -4,7 +4,19 @@
       <button class="button mt-2" (click)="onNewContact()">New contact</button>
     </div>
   </div>
+  <div class="columns" *ngIf="isLoading">
+    <div class="column is-4 is-full-mobile has-text-centered">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+  </div>
   <div class="columns is-centered is-multiline">
+    <div class="columns is-centered is-full-mobile mt-2" *ngIf="isListEmpty">
+      <div class="column is-4-desktop">
+        <div class="block has-text-centered">
+          <p class="is-size-3">The contact list is <strong>empty</strong></p>
+        </div>
+      </div>
+    </div>
     <div class="column is-4-desktop is-full-mobile" *ngFor="let contact of contactList">
       <app-contact [contact]="contact"></app-contact>
     </div>

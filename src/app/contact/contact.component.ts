@@ -12,19 +12,9 @@ import {Router} from "@angular/router";
 export class ContactComponent {
   constructor(private router: Router) {
   }
-  @Input() public contact: ContactModel = {
-    id: '',
-    name: '',
-    email: '',
-    phone: '',
-    avatar: '',
-    createdAt: new Date()
-  };
+  @Input() public contact!: ContactModel;
 
   public onEditContact(): void {
-    console.log(this.contact.id)
     this.router.navigate(['contact/edit', this.contact.id]);
   }
-
-
 }

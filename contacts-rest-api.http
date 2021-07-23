@@ -1,0 +1,15 @@
+### get contacts
+GET https://60f63aa718254c00176e01b2.mockapi.io/contacts
+
+### create a new contact
+POST https://60f63aa718254c00176e01b2.mockapi.io/contacts
+Content-Type: application/json
+
+{
+  "id": "838893",
+  "name": "Juan Faro",
+  "email": "juan@gmail.com",
+  "phone": "873-2993-298",
+  "avatar": "",
+  "createdAt": "2021-07-19T09:16:12.928Z"
+}

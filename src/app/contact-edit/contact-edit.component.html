@@ -1,7 +1,30 @@
 <div class="container is-fluid">
+  <div class="columns is-centered is-full-mobile mt-2" *ngIf="isLoading">
+    <div class="column is-4-desktop has-text-centered">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+  </div>
+  <div class="columns is-centered is-full-mobile mt-2" *ngIf="newContactCreated">
+    <div class="column is-4-desktop">
+      <div class="notification is-primary">
+        <button class="delete"></button>
+        Contact <strong>{{contact.name}}</strong> was created.
+      </div>
+    </div>
+  </div>
+
+  <div class="columns is-centered is-full-mobile mt-2" *ngIf="newContactCreated">
+    <div class="column is-4-desktop">
+      <div class="notification is-primary">
+        <button class="delete"></button>
+        Contact <strong>{{contact.name}}</strong> was created.
+      </div>
+    </div>
+  </div>
+
   <div class="columns is-centered is-full-mobile mt-2">
     <div class="column is-4-desktop">
-      <form #contactForm="ngForm">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmitForm(contactForm)">
         <div class="field">
           <label class="label" for="name">Name</label>
           <div class="control">
