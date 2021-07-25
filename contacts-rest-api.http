@@ -13,3 +13,7 @@ Content-Type: application/json
   "avatar": "",
   "createdAt": "2021-07-19T09:16:12.928Z"
 }
+
+### delete contact
+DELETE https://60f63aa718254c00176e01b2.mockapi.io/contacts/1
+Content-Type: application/json

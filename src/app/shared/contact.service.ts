@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {ContactModel} from "../contact/contact.model";
 import {map} from "rxjs/operators";
 import {environment} from "../../environments/environment";
@@ -9,6 +9,8 @@ import {environment} from "../../environments/environment";
   providedIn: 'root'
 })
 export class ContactService {
+  contactWasDeletedSubject = new Subject<ContactModel>();
+
   constructor(private httpClient: HttpClient) {
   }
 
@@ -19,7 +21,7 @@ export class ContactService {
           return contacts.map(contact => {
             return {
               ...contact,
-              avatar: `https://ui-avatars.com/api/?name=${contact.name}`,
+              avatar: `${environment.avatarUrl}?name=${contact.name}`,
               createdAt: new Date(contact.createdAt)
             }
           })
@@ -46,4 +48,13 @@ export class ContactService {
     });
   }
 
+  public editContact(contactId: string, contact: ContactModel): Observable<ContactModel> {
+    return this.httpClient.put<ContactModel>(`${environment.endpoint}/${contactId}`, {
+      ...contact
+    });
+  }
+
+  public deleteContact(contactId: string): Observable<ContactModel> {
+    return this.httpClient.delete<ContactModel>(`${environment.endpoint}/${contactId}`);
+  }
 }

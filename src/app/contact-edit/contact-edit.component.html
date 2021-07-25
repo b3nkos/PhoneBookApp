@@ -4,7 +4,7 @@
       <app-loading-spinner></app-loading-spinner>
     </div>
   </div>
-  <div class="columns is-centered is-full-mobile mt-2" *ngIf="newContactCreated">
+  <div class="columns is-centered is-full-mobile mt-2" *ngIf="showNewContactCreatedAlert">
     <div class="column is-4-desktop">
       <div class="notification is-primary">
         <button class="delete"></button>
@@ -13,11 +13,11 @@
     </div>
   </div>
 
-  <div class="columns is-centered is-full-mobile mt-2" *ngIf="newContactCreated">
+  <div class="columns is-centered is-full-mobile mt-2" *ngIf="showContactUpdatedAlert">
     <div class="column is-4-desktop">
       <div class="notification is-primary">
         <button class="delete"></button>
-        Contact <strong>{{contact.name}}</strong> was created.
+        Contact <strong>{{contact.name}}</strong> was updated.
       </div>
     </div>
   </div>

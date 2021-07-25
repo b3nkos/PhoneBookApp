@@ -1,11 +1,11 @@
-<div class="box" (click)="onEditContact()">
+<div class="box">
   <article class="media">
     <div class="media-left">
       <figure class="image is-64x64">
-        <img class="is-rounded" [src]="contact.avatar" alt="Image">
+        <img class="is-rounded" [src]="contact.avatar" (click)="onEditContact()" alt="Image">
       </figure>
     </div>
-    <div class="media-content">
+    <div class="media-content" (click)="onEditContact()">
       <div class="content">
         <p>
           <strong>{{contact.name}}</strong>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="media-right">
-      <button class="delete"></button>
+      <button class="delete" (click)="onDelete(contact.id)"></button>
     </div>
   </article>
 </div>

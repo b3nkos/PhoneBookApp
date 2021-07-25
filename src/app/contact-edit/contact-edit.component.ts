@@ -18,10 +18,12 @@ import {ActivatedRoute, Params} from "@angular/router";
   ]
 })
 export class ContactEditComponent implements OnInit {
-  newContactCreated = false;
   public error: string = '';
   isLoading = false;
   isNewContact = false;
+  showNewContactCreatedAlert = false;
+  showContactUpdatedAlert = false;
+  editingContact = false;
   contactId = '';
   @ViewChild('contactForm', {static: false}) contactForm!: NgForm;
   contact!: ContactModel;
@@ -37,6 +39,7 @@ export class ContactEditComponent implements OnInit {
         this.isNewContact = true;
       } else {
         this.contactId = params.id;
+        this.editingContact = true;
       }
     });
 
@@ -62,15 +65,23 @@ export class ContactEditComponent implements OnInit {
 
     const onNext = (contact: ContactModel) => {
       this.contact = contact;
-      this.newContactCreated = true
-      form.reset()
+      if(this.isNewContact) {
+        this.showNewContactCreatedAlert = true
+        form.reset();
+      } else {
+        this.showContactUpdatedAlert = true;
+      }
     }
 
     const onError = (error: HttpErrorResponse) => {
       this.error = error.message;
     }
 
-    this.contactService.createContact(form.value).subscribe(onNext, onError);
+    if(this.isNewContact) {
+      this.contactService.createContact(form.value).subscribe(onNext, onError);
+    } else {
+      this.contactService.editContact(this.contactId, form.value).subscribe(onNext, onError);
+    }
   }
 
 }
