@@ -1,7 +1,12 @@
 <div class="container is-fluid">
   <div class="columns">
     <div class="column is-4 is-full-mobile">
-      <button class="button mt-2" (click)="onNewContact()">New contact</button>
+      <button
+        class="button mt-2"
+        (click)="onNewContact()"
+        data-test-id="contact-create-button">
+        New contact
+      </button>
     </div>
   </div>
   <div class="columns" *ngIf="isLoading">
@@ -9,7 +14,7 @@
       <app-loading-spinner></app-loading-spinner>
     </div>
   </div>
-  <div class="columns is-centered is-multiline">
+  <div class="columns is-centered is-multiline" data-test-id="contact-list-container">
     <div class="columns is-centered is-full-mobile mt-2" *ngIf="isListEmpty">
       <div class="column is-4-desktop">
         <div class="block has-text-centered">

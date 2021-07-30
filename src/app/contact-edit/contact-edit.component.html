@@ -33,6 +33,7 @@
               type="text"
               name="name"
               id="name"
+              data-test-id="contact-name"
               required
               ngModel
               placeholder="e.g Alex Smith">
@@ -47,6 +48,7 @@
               type="email"
               name="email"
               id="email"
+              data-test-id="contact-email"
               required
               ngModel
               placeholder="e.g. alexsmith@gmail.com">
@@ -61,6 +63,7 @@
               type="tel"
               name="phone"
               id="phone"
+              data-test-id="contact-phone"
               required
               ngModel
               placeholder="8888888">
@@ -69,7 +72,10 @@
 
         <div class="field">
           <p class="control">
-            <button class="button is-success" [disabled]="contactForm.invalid">
+            <button
+              class="button is-success"
+              [disabled]="contactForm.invalid"
+              data-test-id="contact-save-button">
               Save
             </button>
           </p>
